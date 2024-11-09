@@ -1,25 +1,25 @@
-Use Cases
-	Actor(s): Authenticated Admin users
 	Use Cases
-		List Team members
-		Add a new team member
-		Edit existing member
-		Delete a member
-Client
-	Tech stack
-		React
-		Axios(For RESTful service calls from react based client side)
-Server
-	Tech stack
-		Python 3.12
-		Django 5.1
-		Django rest framework 
+		Actor(s): Authenticated Admin users
+		Use Cases
+			List Team members
+			Add a new team member
+			Edit existing member
+			Delete a member
+	Client
+		Tech stack
+			React
+			Axios(For RESTful service calls from react based client side)
+	Server
+		Tech stack
+			Python 3.12
+			Django 5.1
+			Django rest framework 
 
-Database
-	SQLite: SQLite is chosen as the persistent data storage considering that the requirement is simple. We need a light weight storage to retrieve and return to the client applications.
+	Database
+		SQLite: SQLite is chosen as the persistent data storage considering that the requirement is simple. We need a light weight storage to retrieve and return to the client applications.
 
-High Level design
-	This application is built as a 3 tier architecture. 
+	High Level design
+		This application is built as a 3 tier architecture. 
 	
  	Web client (Presentation layer)
 		This web client is built using react java script framework. Considering the simplicity of the requirement, the application is using the state management supported out of the box in react, This avoids the complexity of using state management frameworks like redux, mobx etc. As the system continues to extend in the future, a more sophisticated state management framework can be used.  
@@ -42,21 +42,21 @@ High Level design
 	   phone_number = models.CharField(max_length=20, blank=False)
 	   role = models.BooleanField(default=EmpRole.REGULAR)
 
-Testing
-	All the use cases are converted into detailed test cases. Manual testing is performed on all the test cases. 
-	There are three types of automation testing which can be performed.
-		Unit testing across client and server code. We can use python “unittest” library for server side unit testing. For Java script unit testing, I would recommend to use Jest which is a reliable and stable library for unit testing. 
-		API automation testing: This is required to test all the success and failure cases in hitting the API.
-		UI testing.: This automation testing is required to test all UI navigations across three pages. Automation pipeline will fail if any UI flow is failing which will prevent the code to be built for deployment. I would recommend using cypress for web based UI automation testing.
+	Testing
+		All the use cases are converted into detailed test cases. Manual testing is performed on all the test cases. 
+		There are three types of automation testing which can be performed.
+			Unit testing across client and server code. We can use python “unittest” library for server side unit testing. For Java script unit testing, I would recommend to use Jest which is a reliable and stable library for unit testing. 
+			API automation testing: This is required to test all the success and failure cases in hitting the API.
+			UI testing.: This automation testing is required to test all UI navigations across three pages. Automation pipeline will fail if any UI flow is failing which will prevent the code to be built for deployment. I would recommend using cypress for web based UI automation testing.
 
-Deployment
-	Deploying the system is straightforward. There are mainly two parts we need to take care
-	Web deployment
-		Package.json file contains all the dependencies related to the web client. Run the following command to build the code for production deployment
-			npm run build
-	Server deployment 
-		Identify the production environment(Eg. AWS, GCS, Azure etc.)
-		Install the dependencies(eg. Python 3.12, Django 5.1 etc.)
-		Enable version control and automate the deployment process with Github or Gitlab of Jenkins
-		Build and deploy Django package in Docker or related containers.
-		Add and connect to SQLite
+	Deployment
+		Deploying the system is straightforward. There are mainly two parts we need to take care
+		Web deployment
+			Package.json file contains all the dependencies related to the web client. Run the following command to build the code for production deployment
+				npm run build
+		Server deployment 
+			Identify the production environment(Eg. AWS, GCS, Azure etc.)
+			Install the dependencies(eg. Python 3.12, Django 5.1 etc.)
+			Enable version control and automate the deployment process with Github or Gitlab of Jenkins
+			Build and deploy Django package in Docker or related containers.
+			Add and connect to SQLite
