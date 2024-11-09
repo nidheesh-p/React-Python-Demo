@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Button } from "./Common";
 
 export const AddPageHeaderStyle = styled.div`
   font-size: 18px;

@@ -1,5 +1,9 @@
 import React from "react";
+
+/* Styles */
 import { ListView } from "../styles/Common";
+
+/* Components */
 import Emp from "./Emp";
 
 export default class EmpList extends React.Component {

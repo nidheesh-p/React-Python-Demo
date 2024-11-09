@@ -1,7 +1,7 @@
 import React from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 
-// Define the withRouter HOC
+// This HOC is created to support navigation between pages
 function withRouter(Component) {
   function ComponentWithRouterProp(props) {
     let location = useLocation();

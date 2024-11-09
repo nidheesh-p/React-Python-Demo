@@ -1,4 +1,6 @@
 import React from "react";
+
+/* Styles */
 import { ListItem } from "../styles/Common";
 import { EmpContacts, EmpName } from "../styles/ListPage";
 

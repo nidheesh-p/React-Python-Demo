@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 
-// Styled components
 const RadioLabel = styled.label`
   display: flex;
   overflow: hidden;
