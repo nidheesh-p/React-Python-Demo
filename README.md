@@ -45,7 +45,53 @@
 
 	Note: The testing, deployment and monitoring approaches below are proposals and it is not implemented in the currently submitted code.
  
-    	Testing
+	Environment setup
+		- Open terminal and cd to a new directory
+		- Clone the github repo. 
+			- Git clone git@github.com:nidheesh-p/Instawork.git or 
+			- Git clone https://github.com/nidheesh-p/Instawork.git
+
+		Server
+			Prerequisites
+				- Python v3.12 in the virtual environment
+				- Mac computer
+
+			Steps
+				1. Goto project folder
+					- cd EmpMgr (newly cloned directory)
+				2. Create a virtual environment to isolate the package dependencies locally
+					- python3 -m venv EmpMgrEnv
+					- source EmpMgrEnv/bin/activate  (on Mac machine)
+					- EmpMgrEnv\Scripts\activate (on Windows)
+				3. Install the project's dependencies using pip-
+					- pip install -r requirements.txt
+				4. Setup the DB and Apply migrations to set up the database schema
+					- python3 manage.py createdb
+					- python manage.py migrate
+				5. Create superuser
+					- python manage.py createsuperuser --username admin --email <<your email>>
+				6. Start the Django development server
+					- python manage.py runserver
+				7. Test and verify the server
+					- Open the browser and goto http://127.0.0.1:8000/
+
+
+		Client
+			Prerequisites
+				- Node.js
+					- Recommended: Node.js 16 or later.
+					- Minimum: Node.js 14.
+				- npm
+					- Recommended: The latest stable version of npm.
+					- Minimum: npm 6 or later.
+
+			Steps
+				- Cd EmpMgr/empmgrfrontend   (Client code is saved in empmgrfrontend folder)
+				- npm install
+				- Npm start (this will open the project in browser url http://localhost:3000)
+
+
+    Testing
 		All the use cases are converted in detailed test cases. Manual testing is performed on all the test cases. 
   
 		There are four types of automation testing which can be performed.
