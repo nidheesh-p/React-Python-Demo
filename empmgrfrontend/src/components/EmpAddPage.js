@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import validator from 'validator';
 
 /* Components */
 import withRouter from "./withRouter";
@@ -39,28 +40,39 @@ class EmpAddPage extends React.Component {
     // Todo: Log API call Analytics
     // Todo: Validate the input fields before calling the API.
     // Prevent API call if the validation is failed.
-    axios
-      .post(API_SERVER_URL + API_EMPLIST + "/", {
-        first_name: this.state.first_name,
-        last_name: this.state.last_name,
-        email: this.state.email,
-        phone_number: this.state.phone_number,
-        role: this.state.role == "admin",
-      })
-      .then((res) => {
-        alert(
-          "New team member " +
-            this.state.first_name +
-            " " +
-            this.state.last_name +
-            " added successfully!"
-        );
-        this.props.navigate(HOME_ROUTE);
-      })
-      .catch((res) => {
-        alert("Error in adding a new team member");
-        // Todo: Log error message for debugging
-      });
+    if (validator.isEmpty(this.state.first_name) 
+      || validator.isEmpty(this.state.last_name)
+      || validator.isEmpty(this.state.email)
+      || validator.isEmpty(this.state.phone_number)) {
+        alert("Please enter valid data. All fields are mandatory!");
+    } else if(!validator.isEmail(this.state.email)) {
+      alert("Please enter valid email address");
+    } else if(!validator.isMobilePhone(this.state.phone_number)) {
+      alert("Please enter valid phone number");
+    } else {
+      axios
+        .post(API_SERVER_URL + API_EMPLIST + "/", {
+          first_name: this.state.first_name,
+          last_name: this.state.last_name,
+          email: this.state.email,
+          phone_number: this.state.phone_number,
+          role: this.state.role == "admin",
+        })
+        .then((res) => {
+          alert(
+            "New team member " +
+              this.state.first_name +
+              " " +
+              this.state.last_name +
+              " added successfully!"
+          );
+          this.props.navigate(HOME_ROUTE);
+        })
+        .catch((res) => {
+          alert("Error in adding a new team member");
+          // Todo: Log error message for debugging
+        });
+      }
   };
 
   onInputChanged = (event) => {
