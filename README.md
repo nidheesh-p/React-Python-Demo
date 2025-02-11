@@ -46,10 +46,6 @@
 	Note: The testing, deployment and monitoring approaches below are proposals and it is not implemented in the currently submitted code.
  
 	Environment setup
-		- Open terminal and cd to a new directory
-		- Clone the github repo. 
-			- Git clone git@github.com:nidheesh-p/Instawork.git or 
-			- Git clone https://github.com/nidheesh-p/Instawork.git
 
 		Server
 			Prerequisites
